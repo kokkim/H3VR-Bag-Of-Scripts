@@ -4,7 +4,7 @@ using UnityEngine;
 using FistVR;
 using System.Collections;
 
-namespace BagOfScripts.src
+namespace BagOfScripts
 {
     class TogglePosBreakActionWeapon : BreakActionWeapon
     {
