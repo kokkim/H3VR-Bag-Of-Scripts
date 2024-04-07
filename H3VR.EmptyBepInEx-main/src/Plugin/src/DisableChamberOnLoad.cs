@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FistVR;
+using System.Linq;
 
 //Updated for new, non-conflicting format
 //Will be done for other scripts as well eventually
@@ -22,12 +23,16 @@ namespace BagOfScripts
             On.FistVR.FVRFireArmChamber.SetRound_FVRFireArmRound_bool += FVRFireArmChamber_SetRound_FVRFireArmRound_bool;
         }
 
+        //NEEDS TESTING
         private static void FVRFireArmChamber_SetRound_FVRFireArmRound_bool(On.FistVR.FVRFireArmChamber.orig_SetRound_FVRFireArmRound_bool orig, FVRFireArmChamber self, FVRFireArmRound round, bool animate)
         {
             orig(self, round, animate);
             if (_existingDisableChamberOnLoad.TryGetValue(self.Firearm, out DisableChamberOnLoad disableChamberOnLoad))
             {
-                if (chambers)
+                if (disableChamberOnLoad.chambers.Contains(self))
+                {
+                    self.IsAccessible = false;
+                }
             }
         }
 
