@@ -1,0 +1,12 @@
+{
+"name": "Bag_Of_Scripts",
+"author": "Okkim",
+"website_url":"",
+"version_number": "1.3.4",
+"description": "Another code library, yay!",
+"dependencies":
+	[
+		"nrgill28-Sodalite-1.4.0",
+		"nrgill28-HookGenPatcher_H3VR-1.2.3"
+	]
+}
