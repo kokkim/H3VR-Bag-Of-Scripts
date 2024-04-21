@@ -46,5 +46,18 @@ namespace BagOfScripts
             }
         }
 
+        void Update()
+        {
+            if (!handgun.m_isSeerReady)
+            {
+                if (!handgun.IsHeld)
+                {
+                    if (handgun.Slide.CurPos == HandgunSlide.SlidePos.Forward)
+                    {
+                        handgun.m_isSeerReady = true;
+                    }
+                }
+            }
+        }
     }
 }
