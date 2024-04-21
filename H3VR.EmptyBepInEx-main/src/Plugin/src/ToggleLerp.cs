@@ -24,16 +24,17 @@ namespace BagOfScripts
 		[Tooltip("Does the object need to reach the end point before it can be reactivated?")]
 		[SerializeField] bool requireReachingEndToReactivate;
 
-		[SerializeField] UnityEvent OnStartAToB, OnStartBToA;
+		[SerializeField] UnityEvent OnStartAToB, OnStartBToA, OnReachB, OnReachA;
 
-		enum LerpState
+		public enum LerpState
 		{
 			A,
 			AtoB,
 			B,
 			BtoA
         }
-		LerpState lerpState;
+		[HideInInspector]
+		public LerpState lerpState;
 		float lerpProgress;
 
 		public override void Awake()
@@ -48,7 +49,8 @@ namespace BagOfScripts
 
 			if (lerpState == LerpState.AtoB || lerpState == LerpState.BtoA)
             {
-				float newLerpAddition = Time.deltaTime * lerpDuration;
+				float newLerpAddition = Time.deltaTime / lerpDuration;
+
 				if (lerpState == LerpState.BtoA) newLerpAddition *= -1;
 
 				lerpProgress += newLerpAddition;
@@ -56,11 +58,13 @@ namespace BagOfScripts
 				{
 					lerpProgress = 1f;
 					lerpState = LerpState.B;
+					OnReachB.Invoke();
 				}
 				else if (lerpProgress <= 0f)
 				{
 					lerpProgress = 0f;
 					lerpState = LerpState.A;
+					OnReachA.Invoke();
 				}
 				mainObject.SetAnimatedComponent(objectToMove.transform, Mathf.Lerp(endPointValues.x, endPointValues.y, lerpProgress), interpStyle, interpAxis);
 			}
@@ -74,7 +78,6 @@ namespace BagOfScripts
 
 		void LerpAtoB()
         {
-			if (lerpState != LerpState.A) return;
 			lerpState = LerpState.AtoB;
 			if (audioEvent_AToB != null) SM.PlayCoreSound(FVRPooledAudioType.Generic, audioEvent_AToB, transform.position);
 			OnStartAToB.Invoke();
@@ -82,7 +85,6 @@ namespace BagOfScripts
 
 		void LerpBtoA()
         {
-			if (lerpState != LerpState.B) return;
 			lerpState = LerpState.BtoA;
 			if (audioEvent_AToB != null) SM.PlayCoreSound(FVRPooledAudioType.Generic, audioEvent_BToA, transform.position);
 			OnStartBToA.Invoke();
