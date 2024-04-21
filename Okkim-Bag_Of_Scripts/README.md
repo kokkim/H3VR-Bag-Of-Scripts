@@ -48,3 +48,4 @@ Bag of Scripts is a code library made for my mods, released as standalone so it 
 1.6.0:
 - Added DisableChamberOnLoad; disables the specified chamber when a round is manually inserted into it. Does not handle re-enabling the chamber!
 - Added ToggleLerp; moves an object between two set values on a simple interaction
+- Fixed NambuSear not firing the gun more than once when not held
