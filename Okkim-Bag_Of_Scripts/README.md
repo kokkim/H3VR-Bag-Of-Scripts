@@ -48,3 +48,6 @@ Bag of Scripts is a code library made for my mods, released as standalone so it 
 1.6.0:
 - Added ToggleLerp; linearly translates/rotates an object between two set values on a simple interaction
 - Fixed NambuSear not firing the gun more than once when not held
+
+1.7.0:
+- Added RPMSecondarySwitch: switches the bolt speed of an open or closed bolt on a simple interaction

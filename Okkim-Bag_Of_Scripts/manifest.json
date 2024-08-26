@@ -1,8 +1,8 @@
 {
 "name": "Bag_Of_Scripts",
 "author": "Okkim",
-"website_url":"",
-"version_number": "1.6.0",
+"website_url":"https://github.com/kokkim/H3VR-Bag-Of-Scripts",
+"version_number": "1.7.0",
 "description": "Another code library, yay!",
 "dependencies":
 	[

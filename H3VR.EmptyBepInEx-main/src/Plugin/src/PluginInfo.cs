@@ -4,6 +4,6 @@ namespace BagOfScripts
 	{
 		internal const string NAME = "Bag Of Scripts";
 		internal const string GUID = "okkim.bagofscripts";
-		internal const string VERSION = "1.6.0";
+		internal const string VERSION = "1.7.0";
 	}
 }
