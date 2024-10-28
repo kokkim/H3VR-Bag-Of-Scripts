@@ -46,7 +46,11 @@
 - Fixed NambuSear not firing the gun more than once when not held
 
 1.7.0:
-- Added RPMSecondarySwitch: switches the bolt speed of an open or closed bolt on a simple interaction
+- Added RPMSecondarySwitch; switches the bolt speed of an open or closed bolt on a simple interaction
 
 1.8.0:
 - Moved Record Player scripts into Bag of Scripts, this allows users to create their own records
+
+1.9.0:
+- Added TriggerActivatedLaser; Toggles on a laser when the trigger is pulled
+- Added SecondaryAttachmentDetachPoint; Allows the user to detach an object from multiple different points, rather than just the interface trigger
