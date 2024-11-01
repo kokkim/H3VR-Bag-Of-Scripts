@@ -17,27 +17,25 @@ namespace BagOfScripts
         FVRFireArm? curFireArm;
         bool triggerPulled;
 
+#if !DEBUG
+        static TriggerActivatedLaser()  //Static hooks are enabled only once in constructor, and never disabled
+        {
+            On.FistVR.LaserLightAttachment.OnAttach += LaserLightAttachment_OnAttach;
+            On.FistVR.LaserLightAttachment.OnDetach += LaserLightAttachment_OnDetach;
+        }
+
         void Awake()
         {
             if (laser == null && GetComponent<LaserLightAttachment>() != null)
             {
-                laser = GetComponent<LaserLightAttachment>();
+                laser = GetComponentInChildren<LaserLightAttachment>(true);
             }
             _existingTriggerActivatedLasers.Add(laser, this);
-
-#if !DEBUG
-            On.FistVR.LaserLightAttachment.OnAttach += LaserLightAttachment_OnAttach;
-            On.FistVR.LaserLightAttachment.OnDetach += LaserLightAttachment_OnDetach;
-#endif
         }
 
-#if !DEBUG
         void OnDestroy()
         {
             _existingTriggerActivatedLasers.Remove(laser);
-
-            On.FistVR.LaserLightAttachment.OnAttach -= LaserLightAttachment_OnAttach;
-            On.FistVR.LaserLightAttachment.OnDetach -= LaserLightAttachment_OnDetach;
         }
 
         void Update()
@@ -77,25 +75,25 @@ namespace BagOfScripts
 
         void DisableLaser()
         {
-            laser.m_savedSetting = laser.SettingsIndex;
+            if (laser.SettingsIndex != 0) laser.m_savedSetting = laser.SettingsIndex;
             laser.SettingsIndex = 0;
             if (playSoundOnLaserToggle && laser.UI != null) SM.PlayCoreSound(FVRPooledAudioType.GenericClose, laser.UI.AudEvent_Clack, transform.position);
             laser.UpdateParams();
         }
 
-        private void LaserLightAttachment_OnAttach(On.FistVR.LaserLightAttachment.orig_OnAttach orig, LaserLightAttachment self)    //Assign CurFireArm
+        static void LaserLightAttachment_OnAttach(On.FistVR.LaserLightAttachment.orig_OnAttach orig, LaserLightAttachment self)    //Assign CurFireArm
         {
             orig(self);
             if (_existingTriggerActivatedLasers.TryGetValue(self, out TriggerActivatedLaser TAL))
             {
                 if (self.Attachment.curMount.GetRootMount().MyObject is FVRFireArm)
                 {
-                    TAL.curFireArm = laser.Attachment.curMount.GetRootMount().MyObject as FVRFireArm;
+                    TAL.curFireArm = TAL.laser.Attachment.curMount.GetRootMount().MyObject as FVRFireArm;
                 }
             }
         }
 
-        private void LaserLightAttachment_OnDetach(On.FistVR.LaserLightAttachment.orig_OnDetach orig, LaserLightAttachment self)    //Un-assign CurFireArm
+        static void LaserLightAttachment_OnDetach(On.FistVR.LaserLightAttachment.orig_OnDetach orig, LaserLightAttachment self)    //Un-assign CurFireArm
         {
             orig(self);
             if (_existingTriggerActivatedLasers.TryGetValue(self, out TriggerActivatedLaser TAL))
