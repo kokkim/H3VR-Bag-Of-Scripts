@@ -9,6 +9,7 @@ namespace BagOfScripts
     {
         public static readonly Dictionary<LaserLightAttachment, TriggerActivatedLaser> _existingTriggerActivatedLasers = new();
 
+        [Header("Do not put this script onto an inactive gameobject!")]
         public LaserLightAttachment laser;
 
         public bool playSoundOnLaserToggle;

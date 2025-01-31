@@ -53,4 +53,10 @@
 
 1.9.0:
 - Added TriggerActivatedLaser; Toggles on a laser when the trigger is pulled
-- Added SecondaryAttachmentDetachPoint; Allows the user to detach an object from multiple different points, rather than just the interface trigger
+- Added SecondaryAttachmentDetachPoint; Allows the user to detach an attachment from multiple different points, rather than just the interface trigger
+
+1.9.1:
+- Improved usage of TriggerActivatedLaser
+
+1.10.0:
+- Added EjectHandgunMagOnEmpty; works the same as a regular closed bolt automatic mag eject, but for handguns
