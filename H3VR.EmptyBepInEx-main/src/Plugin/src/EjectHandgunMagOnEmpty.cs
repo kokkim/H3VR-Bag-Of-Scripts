@@ -21,7 +21,10 @@ namespace BagOfScripts
         {
             if (handgunSlide == null)
             {
-                transform.root.GetComponentInChildren<HandgunSlide>();
+                if (transform.root.GetComponentInChildren<HandgunSlide>() != null)
+                {
+                    handgunSlide = transform.root.GetComponentInChildren<HandgunSlide>();
+                }
 
                 if (handgunSlide == null) Debug.LogError("No handgun slide assigned or found!");
             }
