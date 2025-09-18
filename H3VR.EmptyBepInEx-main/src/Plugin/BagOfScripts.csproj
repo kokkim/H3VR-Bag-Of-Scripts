@@ -16,7 +16,7 @@
     
     <ItemGroup>
       <Reference Include="MMHOOK_Assembly-CSharp">
-        <HintPath>..\..\..\..\..\..\..\H3VR\profiles\mod_testing\BepInEx\plugins\MMHOOK\MMHOOK_Assembly-CSharp.dll</HintPath>
+        <HintPath>..\..\..\..\..\..\R2MM\H3VR\profiles\mod_testing\BepInEx\plugins\MMHOOK\MMHOOK_Assembly-CSharp.dll</HintPath>
       </Reference>
     </ItemGroup>
 

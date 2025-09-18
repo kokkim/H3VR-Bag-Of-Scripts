@@ -1,3 +1,7 @@
+1.11.0:
+- Added OpenBoltProgressiveTrigger; adds an AUG-style progressive full auto trigger to open bolt weapons.
+- Added MagazineLoadedPhys; Allows GameObjects on a magazine to be enabled/disabled depending on if is loaded to a gun.
+
 1.10.1:
 - Fixed potential edgecase bug with EjectHandgunMagOnEmpty
 - Reversed readme entry order

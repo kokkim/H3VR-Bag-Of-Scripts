@@ -26,13 +26,12 @@ namespace BagOfScripts
                     handgunSlide = transform.root.GetComponentInChildren<HandgunSlide>();
                 }
 
-                if (handgunSlide == null) Debug.LogError("No handgun slide assigned or found!");
+                if (handgunSlide != null) Hook();
+                else Debug.LogError("No handgun slide assigned or found!");
             }
             else
             {
-                _existingAutoMagEjectingHandguns.Add(handgunSlide, this);
-
-                On.FistVR.HandgunSlide.SlideEvent_SmackRear += HandgunSlide_SlideEvent_SmackRear;
+                Hook();
             }
         }
 
@@ -48,6 +47,12 @@ namespace BagOfScripts
                     SM.PlayCoreSound(FVRPooledAudioType.GunMech, ejectHG.audEvent_AutoEjectMag, self.transform.position);
                 }
             }
+        }
+
+        void Hook()
+        {
+            _existingAutoMagEjectingHandguns.Add(handgunSlide, this);
+            On.FistVR.HandgunSlide.SlideEvent_SmackRear += HandgunSlide_SlideEvent_SmackRear;
         }
 
         void OnDestroy()
