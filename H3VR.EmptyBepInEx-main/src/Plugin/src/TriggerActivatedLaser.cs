@@ -15,7 +15,7 @@ namespace BagOfScripts
         public bool playSoundOnLaserToggle;
         public float laserTriggerDeadzone = 0.01f;
 
-        FVRFireArm? curFireArm;
+        FVRPhysicalObject? curObject;
         bool triggerPulled;
 
 #if !DEBUG
@@ -47,9 +47,9 @@ namespace BagOfScripts
                 return;
             }
 
-            if (curFireArm != null && curFireArm.m_hand != null)
+            if (curObject != null && curObject.m_hand != null)
             {
-                float triggerFloat = curFireArm.m_hand.Input.TriggerFloat;
+                float triggerFloat = curObject.m_hand.Input.TriggerFloat;
 
                 if (!triggerPulled)
                 {
@@ -89,7 +89,7 @@ namespace BagOfScripts
             {
                 if (self.Attachment.curMount.GetRootMount().MyObject is FVRFireArm)
                 {
-                    TAL.curFireArm = TAL.laser.Attachment.curMount.GetRootMount().MyObject as FVRFireArm;
+                    TAL.curObject = TAL.laser.Attachment.curMount.GetRootMount().MyObject;
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace BagOfScripts
             orig(self);
             if (_existingTriggerActivatedLasers.TryGetValue(self, out TriggerActivatedLaser TAL))
             {
-                TAL.curFireArm = null;
+                TAL.curObject = null;
             }
         }
 #endif

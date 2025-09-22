@@ -22,7 +22,7 @@ namespace BagOfScripts
         {
             if (receiver == null)
             {
-                if (transform.root.GetComponentInChildren<HandgunSlide>() != null)
+                if (transform.root.GetComponentInChildren<OpenBoltReceiver>() != null)
                 {
                     receiver = transform.root.GetComponentInChildren<OpenBoltReceiver>();
                 }

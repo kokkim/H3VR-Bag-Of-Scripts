@@ -1,3 +1,9 @@
+1.12.0:
+- Added CopyLaserPropertiesToMaterial; this script copies the color and on/off state of a laser and applies it to a material.
+
+1.11.1:
+- Fixed typo in OpenBoltProgressiveTrigger
+
 1.11.0:
 - Added OpenBoltProgressiveTrigger; adds an AUG-style progressive full auto trigger to open bolt weapons.
 - Added MagazineLoadedPhys; Allows GameObjects on a magazine to be enabled/disabled depending on if is loaded to a gun.
