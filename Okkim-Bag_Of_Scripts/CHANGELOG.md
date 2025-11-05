@@ -1,3 +1,6 @@
+1.13.0:
+- Added SimpleGrabSpawner; Lets the user grab a set FVRObject out of it a set number of times (or infinitely).
+
 1.12.0:
 - Added CopyLaserPropertiesToMaterial; this script copies the color and on/off state of a laser and applies it to a material.
 
