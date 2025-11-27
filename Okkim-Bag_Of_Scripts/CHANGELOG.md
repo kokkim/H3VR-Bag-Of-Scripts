@@ -1,3 +1,9 @@
+1.14.0:
+- Added RetractBipodOnCollapse; When a set bipod is collapsed, its legs will retract (or extend if desired).
+
+1.13.1:
+- Fixed editor .dll interfering with functionality
+
 1.13.0:
 - Added SimpleGrabSpawner; Lets the user grab a set FVRObject out of it a set number of times (or infinitely).
 
@@ -72,6 +78,7 @@
 1.1.0:
 - Added PlaySoundOnLoadState; plays a sound either when the gun runs completely dry on ammo, or when the specified magazine is fully loaded
 	* Only fill in the magazine or the firearm, not both!
+	
 1.0.0:
 - Main release
 - Added PistolBrace, PistolBraceToggle scripts; used to make toggleable pistol braces for one-handed shooting
