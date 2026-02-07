@@ -1,3 +1,8 @@
+1.15:0:
+- Added ImprovedAutoRackOnMagLoad; a reworked version of AutoRackOnMagload from H3VRUtilities that optionally doesn't eject the chambered round when a mag is inserted.
+- Added CycleMuzzles; Cycles through an array of muzzles that it fires in sequence.
+- Added BreakOpenTriggerGrabLatch; an addon to Cityrobo's Break Open Trigger, it adds a grabbable latch that opens the breech when pulled, like the USPSAECIAL.
+
 1.14.0:
 - Added RetractBipodOnCollapse; When a set bipod is collapsed, its legs will retract (or extend if desired).
 

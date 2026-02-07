@@ -6,6 +6,10 @@
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="src\BreakOpenTriggerGrabLatch - Copy.cs" />
+    </ItemGroup>
     
     <ItemGroup>       
       <PackageReference Include="BepInEx.Core" Version="5.4.16" />       
@@ -17,6 +21,9 @@
     <ItemGroup>
       <Reference Include="MMHOOK_Assembly-CSharp">
         <HintPath>..\..\..\..\..\..\R2MM\H3VR\profiles\mod_testing\BepInEx\plugins\MMHOOK\MMHOOK_Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="OpenScripts2">
+        <HintPath>..\..\..\..\..\..\R2MM\H3VR\profiles\mod_testing\BepInEx\plugins\cityrobo-OpenScripts2\OpenScripts2.dll</HintPath>
       </Reference>
     </ItemGroup>
 

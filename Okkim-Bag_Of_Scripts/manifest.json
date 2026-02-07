@@ -2,11 +2,12 @@
 "name": "Bag_Of_Scripts",
 "author": "Okkim",
 "website_url":"https://github.com/kokkim/H3VR-Bag-Of-Scripts",
-"version_number": "1.14.0",
+"version_number": "1.15.0",
 "description": "Another code library, yay!",
 "dependencies":
 	[
 		"nrgill28-Sodalite-1.4.0",
-		"nrgill28-HookGenPatcher_H3VR-1.2.3"
+		"nrgill28-HookGenPatcher_H3VR-1.2.3",
+		"cityrobo-OpenScripts2-2.12.0"
 	]
 }
